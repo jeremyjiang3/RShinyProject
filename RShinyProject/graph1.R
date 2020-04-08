@@ -24,7 +24,7 @@ if (FALSE) {
 #read csvs
 movies <- read_csv("www/data/tmdb_5000_movies.csv", na="NA")
 credits <- read_csv("www/data/tmdb_5000_credits.csv",  na="NA")
-oscars <- read_csv("www/data/oscar.csv",  na="NA")
+Oscars <- read_csv("www/data/Oscar.csv",  na="NA")
 Coolcars <- read_csv("www/data/cars.csv")
 Kills <- read_csv("www/data/Kills per Bond movie.csv",  na="NA")
 
@@ -60,8 +60,8 @@ S007_Year_Award$award[is.na(S007_Year_Award$award)]<-0
 
 all_movies<-S007_Year_Award %>% select(title,id,popularity,budget,revenue,vote_average,
                                        year,award)
-
-
+all_movies[,"budget"]<-all_movies[,"budget"]/1000000
+all_movies[,"revenue"]<-all_movies[,"revenue"]/1000000
 # ##Theme
 # 
 # theme_black = function(base_size = 12, base_family = "") {
